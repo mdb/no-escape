@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>No Escape</title>
+    <style>
+      div {
+        margin: 0 auto;
+        width: 95%;
+        max-width: 700px;
+        position: relative;
+      }
+
+      img {
+        position: absolute;
+        left: 0;
+        width: 95%;
+        max-width: 700px;
+        max-height: 700px;
+        visibility: hidden;
+      }
+
+      img.visible {
+        visibility: visible;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <img src="images/1.png" />
+      <img src="images/2.png" />
+      <img src="images/3.png" />
+      <img src="images/4.png" />
+      <img src="images/5.png" />
+      <img src="images/6.png" />
+      <img src="images/7.png" />
+      <img src="images/8.png" />
+      <img src="images/9.png" />
+      <img src="images/10.png" />
+      <img src="images/11.png" />
+      <img src="images/12.png" />
+      <img src="images/13.png" />
+      <img src="images/14.png" />
+      <img src="images/15.png" />
+      <img src="images/16.png" />
+      <img src="images/17.png" />
+      <img src="images/18.png" />
+      <img src="images/19.png" />
+      <img src="images/20.png" />
+      <img src="images/21.png" />
+      <img src="images/22.png" />
+      <img src="images/23.png" />
+      <img src="images/24.png" />
+      <img src="images/25.png" />
+      <img src="images/26.png" />
+    </div>
+
+    <script>
+      (function() {
+        function animate() {
+          var imgs = document.querySelectorAll('img'),
+              counter = 0;
+
+          setInterval(function() {
+            var lastImg = document.querySelector('img.visible');
+
+            if (lastImg) { lastImg.className = ''; }
+
+            imgs[counter].className = 'visible';
+
+            if (counter !== 25) {
+              counter++;
+            } else {
+              counter = 12;
+            }
+          }, 400);
+        }
+
+        animate();
+      })();
+    </script>
+  </body>
+</html>
