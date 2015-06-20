@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>No Escape</title>
+    <title>Peace Please/Hair Everywhere</title>
     <style>
       div {
         margin: 0 auto;
@@ -54,30 +54,37 @@
       <img src="images/24.png" />
       <img src="images/25.png" />
       <img src="images/26.png" />
+      <img src="images/27.png" />
+      <img src="images/28.png" />
+      <img src="images/29.png" />
     </div>
 
     <script>
       (function() {
-        function animate() {
-          var imgs = document.querySelectorAll('img'),
-              counter = 0;
+        var imgs = document.querySelectorAll('img'),
+            counter = 0,
+            interval,
+            animate = function() {
+              var lastImg = document.querySelector('img.visible');
 
-          setInterval(function() {
-            var lastImg = document.querySelector('img.visible');
+              if (lastImg) { lastImg.className = ''; }
 
-            if (lastImg) { lastImg.className = ''; }
+              imgs[counter].className = 'visible';
 
-            imgs[counter].className = 'visible';
-
-            if (counter !== 25) {
               counter++;
-            } else {
-              counter = 12;
-            }
-          }, 400);
-        }
 
-        animate();
+              if (counter === imgs.length) {
+                imgs[counter].className = '';
+
+                clearInterval(interval);
+              }
+            };
+
+          setTimeout(function() {
+            interval = setInterval(function() {
+              animate();
+            }, 300);
+          }, 1000);
       })();
     </script>
   </body>
